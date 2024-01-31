@@ -16,6 +16,7 @@ class MockData {
     static let item = Product(name: Texts.MockData.name, description: Texts.MockData.description, image: Image.Content.sparLipa, homeland: ConfigSupport.homelandConfig(), characteristics: ConfigSupport.charsConfig(), reviews: ConfigSupport.reviewConfig(count: 3), price: ConfigSupport.priceConfig())
 }
 
+// MARK: Support object configurators
 class ConfigSupport {
     static func homelandConfig() -> Homeland {
         let country = Texts.MockData.homelandCountry

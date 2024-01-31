@@ -11,12 +11,14 @@ struct MainView: View {
     
     @State var isLiked = false
         
+    // MARK: Views with mock data
     let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale)
     let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
     let characteristics = CharacteristicsView(chars: MockData.item.characteristics)
     let reviews = ReviewsView(reviewsData: MockData.item.reviews)
     let price = PriceView(prices: MockData.item.price)
     
+    // MARK: Main view
     var body: some View {
         TabView {
         NavigationView {
@@ -64,6 +66,7 @@ struct MainView: View {
         }
     }
     
+    // MARK: Navigation buttons
     var leadingNavButton: some View {
         Button(action: {}, label: {
             Image.Navigation.arrowBack
@@ -93,7 +96,7 @@ struct MainView: View {
             
             Button(action: {
                 withAnimation {
-                    isLiked.toggle()
+                    isLiked.toggle() // animated heart button
                 }
             }, label: {
                 (isLiked ? Image.Navigation.filledHeart : Image.Navigation.heart)

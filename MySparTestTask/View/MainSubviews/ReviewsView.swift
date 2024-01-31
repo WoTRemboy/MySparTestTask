@@ -35,7 +35,7 @@ struct ReviewsView: View {
         ScrollView(.horizontal) {
             LazyHStack {
                 ForEach(reviewsData, id: \.id) { review in
-                    ReviewCell(review: review)
+                    ReviewCell(review: review) // custom review cell
                 }
                 
             }

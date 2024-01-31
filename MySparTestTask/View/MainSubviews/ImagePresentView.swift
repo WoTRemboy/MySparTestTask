@@ -62,7 +62,7 @@ struct ImagePresentView: View {
                 .font(.footnote())
                 .foregroundStyle(Color.LabelColors.labelWhite)
                 .padding(.top, 8)
-                
+            
                 .background(CurvedRectangle()
                     .foregroundColor(.IconColors.saleBackground)
                     .frame(width: 50, height: 28))
@@ -71,6 +71,7 @@ struct ImagePresentView: View {
     }
 }
 
+// MARK: Sale rectangle setup
 struct CurvedRectangle: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -84,7 +85,7 @@ struct CurvedRectangle: Shape {
         
         path.addLine(to: CGPoint(x: width * 6/7, y: 0))
         path.addQuadCurve(to: CGPoint(x: 0, y: height / 3), control: CGPoint(x: width / 2, y: height / 2.5))
-
+        
         return path
     }
 }

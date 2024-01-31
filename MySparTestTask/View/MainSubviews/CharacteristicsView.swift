@@ -14,11 +14,7 @@ struct CharacteristicsView: View {
         characteristics
     }
     
-//    GeometryReader { geometry in
-//        var dots = String(repeating: ".", count: Int(geometry.size.width) / 15)
-//        Text(dots)
-//        }
-    
+    // MARK: Every characteristics point
     var characteristics: some View {
         VStack {
             HStack {
@@ -130,6 +126,7 @@ struct CharacteristicsView: View {
     }
 }
 
+// MARK: Dot line setup
 struct Line: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()

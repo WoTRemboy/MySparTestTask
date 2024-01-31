@@ -66,7 +66,7 @@ struct ReviewCell: View {
                 Image.Icons.star
                     .foregroundStyle(index <= review.rating ? Color.IconColors.starHighlighted : Color.IconColors.starDownplay)
                     .font(.subhead())
-            }
+            } // to change stars depanding on rating data
         }
     }
 }

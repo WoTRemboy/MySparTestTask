@@ -37,6 +37,7 @@ struct PriceView: View {
         .padding(.horizontal)
     }
     
+    // MARK: Price depends on segmented type selected
     var price: some View {
         HStack {
             VStack {
@@ -68,6 +69,7 @@ struct PriceView: View {
         
     }
     
+    // MARK: With elementary logical implementation
     var counter: some View {
         HStack {
             Button(action: {
