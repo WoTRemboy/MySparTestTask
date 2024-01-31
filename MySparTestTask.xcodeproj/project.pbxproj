@@ -20,6 +20,7 @@
 		634F3FBB2B6A844500C01426 /* ImagePresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FBA2B6A844500C01426 /* ImagePresentView.swift */; };
 		634F3FBD2B6A889C00C01426 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FBC2B6A889C00C01426 /* Labels.swift */; };
 		634F3FBF2B6A9F2900C01426 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FBE2B6A9F2900C01426 /* TitleDescriptionView.swift */; };
+		634F3FC12B6AAA4B00C01426 /* CharacteristicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		634F3FBA2B6A844500C01426 /* ImagePresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentView.swift; sourceTree = "<group>"; };
 		634F3FBC2B6A889C00C01426 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		634F3FBE2B6A9F2900C01426 /* TitleDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescriptionView.swift; sourceTree = "<group>"; };
+		634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				634F3F9A2B6A599E00C01426 /* MainView.swift */,
 				634F3FBA2B6A844500C01426 /* ImagePresentView.swift */,
 				634F3FBE2B6A9F2900C01426 /* TitleDescriptionView.swift */,
+				634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */,
 				634F3FB62B6A7CEF00C01426 /* ViewModifiers.swift */,
 			);
 			path = View;
@@ -219,6 +222,7 @@
 				634F3FB52B6A5C2900C01426 /* ImageExtention.swift in Sources */,
 				634F3FB72B6A7CEF00C01426 /* ViewModifiers.swift in Sources */,
 				634F3FB12B6A5C0900C01426 /* ColorExtention.swift in Sources */,
+				634F3FC12B6AAA4B00C01426 /* CharacteristicsView.swift in Sources */,
 				634F3FBD2B6A889C00C01426 /* Labels.swift in Sources */,
 				634F3FB32B6A5C1900C01426 /* FontExtention.swift in Sources */,
 				634F3F992B6A599E00C01426 /* MySparTestTaskApp.swift in Sources */,

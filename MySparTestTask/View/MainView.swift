@@ -13,13 +13,15 @@ struct MainView: View {
         
     let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
     let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
+    let characteristics = CharacteristicsView(chars: MockData.item.characteristics)
     
     var body: some View {
         NavigationView {
             ScrollView{
-                VStack {
+                LazyVStack {
                     imagePreview
                     titleDescriprion
+                    characteristics
                 }
             }
             .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
