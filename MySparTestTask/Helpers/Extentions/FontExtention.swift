@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Font {
     static func largeTitle() -> Font? {
-        Font.system(size: 38, weight: .bold)
+        Font.system(size: 35, weight: .bold)
     }
     
     static func totalPrice() -> Font? {
@@ -26,6 +26,10 @@ extension Font {
     
     static func separator() -> Font? {
         Font.system(size: 20, weight: .light)
+    }
+    
+    static func boldHeadline() -> Font? {
+        Font.system(size: 17, weight: .bold)
     }
     
     static func headline() -> Font? {

@@ -42,8 +42,8 @@ struct Review {
 }
 
 struct Price {
-    let regularKgPrice: Int
-    let currentKgPrice: Int
-    let regularItemPrice: Int
-    let currentItemPrice: Int
+    let regularKgPrice: Decimal
+    let currentKgPrice: Decimal
+    let regularItemPrice: Decimal
+    let currentItemPrice: Decimal
 }

@@ -10,14 +10,16 @@ import SwiftUI
 struct MainView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    
+        
     let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
+    let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
     
     var body: some View {
         NavigationView {
             ScrollView{
                 VStack {
                     imagePreview
+                    titleDescriprion
                 }
             }
             .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
