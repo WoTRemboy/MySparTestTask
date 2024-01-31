@@ -20,4 +20,8 @@ extension Image {
         static let check = Image(systemName: "doc.plaintext")
     }
     
+    enum Icons {
+        static let star = Image(systemName: "star.fill")
+    }
+    
 }

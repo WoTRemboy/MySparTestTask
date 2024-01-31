@@ -15,3 +15,13 @@ struct NavigationSetup: ViewModifier {
             .frame(width: size.width, height: size.height)
     }
 }
+
+struct CardPriceSetup: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(Color.LabelColors.labelWhite)
+            .padding(8)
+            .background(Color.IconColors.cardPriceBackground)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+    }
+}

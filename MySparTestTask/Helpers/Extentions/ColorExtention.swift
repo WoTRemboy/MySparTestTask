@@ -22,6 +22,7 @@ extension Color {
         static let labelPrimary = Color("LabelPrimary")
         static let labelSecondary = Color("LabelSecondary")
         static let labelTertiary = Color("LabelTertiary")
+        static let labelWhite = Color("LabelWhite")
     }
     
     enum SupportColors {
@@ -33,6 +34,7 @@ extension Color {
     
     enum IconColors {
         static let cardPriceBackground = Color("CardPriceBackground")
+        static let saleBackground = Color("SaleBackground")
         static let counterBackground = Color("CounterBackground")
         static let iconsForeground = Color("IconsForeground")
         static let starDownplay = Color("StarDownplay")

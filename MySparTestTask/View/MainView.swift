@@ -11,18 +11,17 @@ struct MainView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
     
+    let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
+    
     var body: some View {
         NavigationView {
+            ScrollView{
                 VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                    Text("Hello, world!")
+                    imagePreview
                 }
-                .padding()
+            }
             .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
         }
-        
     }
     
     var leadingNavButton: some View {

@@ -24,6 +24,10 @@ extension Font {
         Font.system(size: 20, weight: .medium)
     }
     
+    static func separator() -> Font? {
+        Font.system(size: 20, weight: .light)
+    }
+    
     static func headline() -> Font? {
         Font.system(size: 17, weight: .medium)
     }
