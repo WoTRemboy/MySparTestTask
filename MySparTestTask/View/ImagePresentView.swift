@@ -14,7 +14,6 @@ struct ImagePresentView: View {
     
     var body: some View {
         VStack {
-            Divider()
             cardPrice
             image
             reviews

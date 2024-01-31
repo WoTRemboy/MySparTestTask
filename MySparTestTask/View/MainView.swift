@@ -17,14 +17,19 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView{
-                LazyVStack {
-                    imagePreview
-                    titleDescriprion
-                    characteristics
+            VStack(spacing: 0) {
+                Divider()
+                ScrollView{
+                    Spacer()
+                    LazyVStack {
+                        imagePreview
+                        titleDescriprion
+                        characteristics
+                    }
                 }
+                .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
+                
             }
-            .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
         }
     }
     
