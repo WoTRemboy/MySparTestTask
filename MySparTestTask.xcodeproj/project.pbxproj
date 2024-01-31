@@ -16,6 +16,7 @@
 		634F3FB12B6A5C0900C01426 /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FB02B6A5C0900C01426 /* ColorExtention.swift */; };
 		634F3FB32B6A5C1900C01426 /* FontExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FB22B6A5C1900C01426 /* FontExtention.swift */; };
 		634F3FB52B6A5C2900C01426 /* ImageExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FB42B6A5C2900C01426 /* ImageExtention.swift */; };
+		634F3FB72B6A7CEF00C01426 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FB62B6A7CEF00C01426 /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		634F3FB02B6A5C0900C01426 /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
 		634F3FB22B6A5C1900C01426 /* FontExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtention.swift; sourceTree = "<group>"; };
 		634F3FB42B6A5C2900C01426 /* ImageExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtention.swift; sourceTree = "<group>"; };
+		634F3FB62B6A7CEF00C01426 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				634F3F9A2B6A599E00C01426 /* MainView.swift */,
+				634F3FB62B6A7CEF00C01426 /* ViewModifiers.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				634F3F9B2B6A599E00C01426 /* MainView.swift in Sources */,
 				634F3FAB2B6A5B4000C01426 /* ViewModel.swift in Sources */,
 				634F3FB52B6A5C2900C01426 /* ImageExtention.swift in Sources */,
+				634F3FB72B6A7CEF00C01426 /* ViewModifiers.swift in Sources */,
 				634F3FB12B6A5C0900C01426 /* ColorExtention.swift in Sources */,
 				634F3FB32B6A5C1900C01426 /* FontExtention.swift in Sources */,
 				634F3F992B6A599E00C01426 /* MySparTestTaskApp.swift in Sources */,
