@@ -29,7 +29,7 @@ struct CharacteristicsView: View {
                 Spacer()
                 Text("..............")
                 Spacer()
-                Text("\(chars.production.contry), \(chars.production.town)")
+                Text("\(chars.production.country), \(chars.production.town)")
                     .multilineTextAlignment(.trailing)
                     .font(.subhead())
                     .padding(.bottom, -18)

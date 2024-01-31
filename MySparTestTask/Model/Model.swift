@@ -20,7 +20,7 @@ struct Product {
 }
 
 struct Homeland {
-    let contry: String
+    let country: String
     let town: String
     let image: Image?
 }
@@ -42,7 +42,7 @@ struct Review {
 }
 
 struct Price {
-    let regularKgPrice: Float // needs to be Ddecimal
+    let regularKgPrice: Float // perfectly needs to be Ddecimal
     let currentKgPrice: Float
     let regularItemPrice: Float
     let currentItemPrice: Float

@@ -14,4 +14,15 @@ extension Date {
         dateFormatter.locale = Locale(identifier: "ru_RU")
         return dateFormatter.string(from: date)
     }
+    
+    static func configMockDate() -> Date {
+        let calendar = Calendar.current
+
+        var dateComponents = DateComponents()
+        dateComponents.year = 2021
+        dateComponents.month = 5
+        dateComponents.day = 7
+        
+        return calendar.date(from: dateComponents) ?? .now
+    }
 }

@@ -13,5 +13,46 @@ class ViewModel: ObservableObject {
 }
 
 class MockData {
-    static let item = Product(name: "Добавка \"Липа\" к чаю 200 г", description: "Флавоноиды липового цвета обладают противовоспалительным действием, способствуют укреплению стенки сосудов.", image: Image.Content.sparLipa, homeland: Homeland(contry: "Испания", town: "Риоха", image: Image.Content.spainFlag), characteristics: Characteristics(production: Homeland(contry: "Россия", town: "Краснодарский край", image: nil), calories: "25 ккал, 105 кДж", fats: "0,1 г", squirrels: "1,3 г", carbohydrates: "3,3 г"), reviews: [Review(userName: "Александр В.", date: .now, rating: 4, description: "Хорошая добавка, мне очень понравилось! Хочу, чтобы все добавки были такими!"), Review(userName: "Александр В.", date: .now, rating: 4, description: "Хорошая добавка, мне очень понравилось! Хочу, чтобы все добавки были такими!"), Review(userName: "Александр В.", date: .now, rating: 4, description: "Хорошая добавка, мне очень понравилось! Хочу, чтобы все добавки были такими!")], price: Price(regularKgPrice: 199.0, currentKgPrice: 55.9, regularItemPrice: 399.0, currentItemPrice: 120.0))
+    static let item = Product(name: Texts.MockData.name, description: Texts.MockData.description, image: Image.Content.sparLipa, homeland: ConfigSupport.homelandConfig(), characteristics: ConfigSupport.charsConfig(), reviews: ConfigSupport.reviewConfig(count: 3), price: ConfigSupport.priceConfig())
+}
+
+class ConfigSupport {
+    static func homelandConfig() -> Homeland {
+        let country = Texts.MockData.homelandCountry
+        let town = Texts.MockData.homelandTown
+        let image = Image.Content.spainFlag
+        return Homeland(country: country, town: town, image: image)
+    }
+    
+    static func charsConfig() -> Characteristics {
+        let production = Homeland(country: Texts.MockData.productionCountry, town: Texts.MockData.productionTown, image: nil)
+        let calories = Texts.MockData.calories
+        let fats = Texts.MockData.fats
+        let squirrels = Texts.MockData.squirrels
+        let carbohydrates = Texts.MockData.carbohydrates
+        return Characteristics(production: production, calories: calories, fats: fats, squirrels: squirrels, carbohydrates: carbohydrates)
+    }
+    
+    static func reviewConfig(count: Int) -> [Review] {
+        var reviews = [Review]()
+        
+        let username = Texts.MockData.userName
+        let date = Date.configMockDate()
+        let rating = 4
+        let descriprion = Texts.MockData.reviewDescription
+        
+        for _ in 0..<count {
+            reviews.append(Review(userName: username, date: date, rating: rating, description: descriprion))
+        }
+        return reviews
+    }
+    
+    static func priceConfig() -> Price {
+        let regularKgPrice: Float = 199.0
+        let currentKgPrice: Float = 55.9
+        let regularItemPrice: Float = 399.0
+        let currentItemPrice: Float = 120.0
+        
+        return Price(regularKgPrice: regularKgPrice, currentKgPrice: currentKgPrice, regularItemPrice: regularItemPrice, currentItemPrice: currentItemPrice)
+    }
 }

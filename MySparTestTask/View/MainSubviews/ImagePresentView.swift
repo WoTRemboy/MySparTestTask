@@ -22,7 +22,7 @@ struct ImagePresentView: View {
     
     var cardPrice: some View {
         HStack {
-            Text(Texts.cardPrice)
+            Text(Texts.Content.cardPrice)
                 .font(.footnote)
                 .modifier(CardPriceSetup())
                 .padding(.leading)

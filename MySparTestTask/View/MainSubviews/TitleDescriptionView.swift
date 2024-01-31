@@ -36,7 +36,7 @@ struct TitleDescriptionView: View {
                 .frame(width: 25, height: 25)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.leading)
-            Text("\(homeland.contry), \(homeland.town)")
+            Text("\(homeland.country), \(homeland.town)")
                 .padding(.leading, 5)
             Spacer()
         }
@@ -60,5 +60,5 @@ struct TitleDescriptionView: View {
 }
 
 #Preview {
-    TitleDescriptionView(name: "Добавка \"Липа\" к чаю 200 г", homeland: Homeland(contry: "Испания", town: "Риоха", image: Image.Content.spainFlag), descriptionText: "Флавоноиды липового цвета обладают противовоспалительным действием, способствуют укреплению стенки сосудов.")
+    TitleDescriptionView(name: "Добавка \"Липа\" к чаю 200 г", homeland: Homeland(country: "Испания", town: "Риоха", image: Image.Content.spainFlag), descriptionText: "Флавоноиды липового цвета обладают противовоспалительным действием, способствуют укреплению стенки сосудов.")
 }

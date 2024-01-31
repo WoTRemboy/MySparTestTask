@@ -115,12 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				634F3F9A2B6A599E00C01426 /* MainView.swift */,
-				634F3FBA2B6A844500C01426 /* ImagePresentView.swift */,
-				634F3FBE2B6A9F2900C01426 /* TitleDescriptionView.swift */,
-				634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */,
-				634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */,
-				634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */,
-				634F3FC82B6AD36900C01426 /* PriceView.swift */,
+				634F3FD12B6AF60000C01426 /* MainSubviews */,
 				634F3FB62B6A7CEF00C01426 /* ViewModifiers.swift */,
 				634F3FCA2B6AEB7800C01426 /* EmptyViews */,
 			);
@@ -172,6 +167,19 @@
 				634F3FCF2B6AEBB100C01426 /* ProfileView.swift */,
 			);
 			path = EmptyViews;
+			sourceTree = "<group>";
+		};
+		634F3FD12B6AF60000C01426 /* MainSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				634F3FBA2B6A844500C01426 /* ImagePresentView.swift */,
+				634F3FBE2B6A9F2900C01426 /* TitleDescriptionView.swift */,
+				634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */,
+				634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */,
+				634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */,
+				634F3FC82B6AD36900C01426 /* PriceView.swift */,
+			);
+			path = MainSubviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
