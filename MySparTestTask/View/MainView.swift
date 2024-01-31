@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    
+    @State var isLiked = false
         
     let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
     let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
@@ -18,21 +18,49 @@ struct MainView: View {
     let price = PriceView(prices: MockData.item.price)
     
     var body: some View {
+        TabView {
         NavigationView {
-            VStack(spacing: 0) {
-                Divider()
-                ScrollView{
-                    Spacer()
-                    LazyVStack {
-                        imagePreview
-                        titleDescriprion
-                        characteristics
-                        reviews
-                        price
+                VStack(spacing: 0) {
+                    Divider()
+                    ScrollView{
+                        Spacer()
+                        LazyVStack {
+                            imagePreview
+                            titleDescriprion
+                            characteristics
+                            reviews
+                            price
+                        }
                     }
+                    .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
                 }
-                .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
-            }
+            
+        }
+        .tabItem {
+            Image.Icons.main
+                .environment(\.symbolVariants, .none)
+            Text("Главная")
+        }
+            CatalogView()
+                .tabItem {
+                    Image.Icons.catalog
+                        .environment(\.symbolVariants, .none)
+                    Text("Каталог")
+                }
+            
+            CartView()
+                .tabItem {
+                    Image.Icons.cart
+                        .environment(\.symbolVariants, .none)
+                    Text("First")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Image.Icons.profile
+                        .environment(\.symbolVariants, .none)
+                    Text("First")
+                }
         }
     }
     
@@ -63,8 +91,12 @@ struct MainView: View {
             })
             .padding(.trailing, 6)
             
-            Button(action: {}, label: {
-                Image.Navigation.heart
+            Button(action: {
+                withAnimation {
+                    isLiked.toggle()
+                }
+            }, label: {
+                (isLiked ? Image.Navigation.filledHeart : Image.Navigation.heart)
                     .resizable()
                     .fontWeight(.medium)
                     .modifier(NavigationSetup(size: CGSize(width: 23, height: 23)))
