@@ -66,6 +66,7 @@
 				634F3FA82B6A5A1D00C01426 /* ViewModel */,
 				634F3FA72B6A5A1300C01426 /* View */,
 				634F3FAE2B6A5B7200C01426 /* Helpers */,
+				634F3F9E2B6A59A000C01426 /* Preview Content */,
 			);
 			path = MySparTestTask;
 			sourceTree = "<group>";
@@ -115,7 +116,6 @@
 			children = (
 				634F3FAF2B6A5BD700C01426 /* Extentions */,
 				634F3F9C2B6A59A000C01426 /* Assets.xcassets */,
-				634F3F9E2B6A59A000C01426 /* Preview Content */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
