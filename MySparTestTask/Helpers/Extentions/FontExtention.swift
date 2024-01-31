@@ -40,11 +40,19 @@ extension Font {
         Font.system(size: 17, weight: .light)
     }
     
+    static func boldSubhead() -> Font? {
+        Font.system(size: 15, weight: .bold)
+    }
+    
     static func subhead() -> Font? {
         Font.system(size: 15, weight: .regular)
     }
     
     static func footnote() -> Font? {
         Font.system(size: 13, weight: .medium)
+    }
+    
+    static func cart() -> Font? {
+        Font.system(size: 13, weight: .light)
     }
 }

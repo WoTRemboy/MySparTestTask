@@ -42,8 +42,13 @@ struct Review {
 }
 
 struct Price {
-    let regularKgPrice: Decimal
-    let currentKgPrice: Decimal
-    let regularItemPrice: Decimal
-    let currentItemPrice: Decimal
+    let regularKgPrice: Float // needs to be Ddecimal
+    let currentKgPrice: Float
+    let regularItemPrice: Float
+    let currentItemPrice: Float
+}
+
+enum AccountingType {
+    case kg
+    case units
 }

@@ -15,6 +15,7 @@ struct MainView: View {
     let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
     let characteristics = CharacteristicsView(chars: MockData.item.characteristics)
     let reviews = ReviewsView(reviewsData: MockData.item.reviews)
+    let price = PriceView(prices: MockData.item.price)
     
     var body: some View {
         NavigationView {
@@ -27,10 +28,10 @@ struct MainView: View {
                         titleDescriprion
                         characteristics
                         reviews
+                        price
                     }
                 }
                 .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
-                
             }
         }
     }

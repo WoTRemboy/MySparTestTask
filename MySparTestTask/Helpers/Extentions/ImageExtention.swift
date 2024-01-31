@@ -22,6 +22,8 @@ extension Image {
     
     enum Icons {
         static let star = Image(systemName: "star.fill")
+        static let plus = Image(systemName: "plus")
+        static let minus = Image(systemName: "minus")
     }
     
 }

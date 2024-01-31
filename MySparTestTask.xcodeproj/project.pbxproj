@@ -24,6 +24,7 @@
 		634F3FC32B6ABD1D00C01426 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */; };
 		634F3FC52B6AC55C00C01426 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FC42B6AC55C00C01426 /* DateFormatting.swift */; };
 		634F3FC72B6ACAFE00C01426 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */; };
+		634F3FC92B6AD36900C01426 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FC82B6AD36900C01426 /* PriceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
 		634F3FC42B6AC55C00C01426 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		634F3FC82B6AD36900C01426 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */,
 				634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */,
 				634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */,
+				634F3FC82B6AD36900C01426 /* PriceView.swift */,
 				634F3FB62B6A7CEF00C01426 /* ViewModifiers.swift */,
 			);
 			path = View;
@@ -232,6 +235,7 @@
 				634F3FAB2B6A5B4000C01426 /* ViewModel.swift in Sources */,
 				634F3FB52B6A5C2900C01426 /* ImageExtention.swift in Sources */,
 				634F3FC32B6ABD1D00C01426 /* ReviewsView.swift in Sources */,
+				634F3FC92B6AD36900C01426 /* PriceView.swift in Sources */,
 				634F3FB72B6A7CEF00C01426 /* ViewModifiers.swift in Sources */,
 				634F3FB12B6A5C0900C01426 /* ColorExtention.swift in Sources */,
 				634F3FC12B6AAA4B00C01426 /* CharacteristicsView.swift in Sources */,
