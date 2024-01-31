@@ -14,6 +14,7 @@ struct MainView: View {
     let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
     let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
     let characteristics = CharacteristicsView(chars: MockData.item.characteristics)
+    let reviews = ReviewsView(reviewsData: MockData.item.reviews)
     
     var body: some View {
         NavigationView {
@@ -25,6 +26,7 @@ struct MainView: View {
                         imagePreview
                         titleDescriprion
                         characteristics
+                        reviews
                     }
                 }
                 .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)

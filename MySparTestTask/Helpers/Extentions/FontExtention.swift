@@ -21,7 +21,7 @@ extension Font {
     }
     
     static func title() -> Font? {
-        Font.system(size: 20, weight: .medium)
+        Font.system(size: 20, weight: .bold)
     }
     
     static func separator() -> Font? {
