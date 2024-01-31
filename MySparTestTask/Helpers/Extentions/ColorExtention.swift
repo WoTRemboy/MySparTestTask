@@ -9,33 +9,33 @@ import SwiftUI
 
 extension Color {
     enum BackColors {
-        static let backElevated = UIColor(named: "BackElevated")
-        static let backiOSPrimary = UIColor(named: "BackiOSPrimary")
-        static let backPrimary = UIColor(named: "BackPrimary")
-        static let backSecondary = UIColor(named: "BackSecondary")
-        static let backSplash = UIColor(named: "BackSplash")
-        static let backDefault = UIColor(named: "BackDefault")
+        static let backElevated = Color("BackElevated")
+        static let backiOSPrimary = Color("BackiOSPrimary")
+        static let backPrimary = Color("BackPrimary")
+        static let backSecondary = Color("BackSecondary")
+        static let backSplash = Color("BackSplash")
+        static let backDefault = Color("BackDefault")
     }
     
     enum LabelColors {
-        static let labelDisable = UIColor(named: "LabelDisable")
-        static let labelPrimary = UIColor(named: "LabelPrimary")
-        static let labelSecondary = UIColor(named: "LabelSecondary")
-        static let labelTertiary = UIColor(named: "LabelTertiary")
+        static let labelDisable = Color("LabelDisable")
+        static let labelPrimary = Color("LabelPrimary")
+        static let labelSecondary = Color("LabelSecondary")
+        static let labelTertiary = Color("LabelTertiary")
     }
     
     enum SupportColors {
-        static let supportNavBar = UIColor(named: "SupportNavBar")
-        static let supportOverlay = UIColor(named: "SupportOverlay")
-        static let supportSegmented = UIColor(named: "SupportSegmented")
-        static let supportSeparator = UIColor(named: "SupportSeparator")
+        static let supportNavBar = Color("SupportNavBar")
+        static let supportOverlay = Color("SupportOverlay")
+        static let supportSegmented = Color("SupportSegmented")
+        static let supportSeparator = Color("SupportSeparator")
     }
     
     enum IconColors {
-        static let cardPriceBackground = UIColor(named: "CardPriceBackground")
-        static let counterBackground = UIColor(named: "CounterBackground")
-        static let iconsForeground = UIColor(named: "IconsForeground")
-        static let starDownplay = UIColor(named: "StarDownplay")
-        static let starHighlighted = UIColor(named: "StarHighlighted")
+        static let cardPriceBackground = Color("CardPriceBackground")
+        static let counterBackground = Color("CounterBackground")
+        static let iconsForeground = Color("IconsForeground")
+        static let starDownplay = Color("StarDownplay")
+        static let starHighlighted = Color("StarHighlighted")
     }
 }
