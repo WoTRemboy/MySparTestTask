@@ -10,7 +10,7 @@ import SwiftUI
 extension Image {
     enum Content {
         static let sparLipa = Image("SparLipa")
-        static let spainFlag = Image("SpainFlag")
+        static let spainFlag = Image("Flag")
     }
     
     enum Navigation {
