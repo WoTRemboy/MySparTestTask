@@ -14,34 +14,50 @@ struct CharacteristicsView: View {
         characteristics
     }
     
+//    GeometryReader { geometry in
+//        var dots = String(repeating: ".", count: Int(geometry.size.width) / 15)
+//        Text(dots)
+//        }
+    
     var characteristics: some View {
         VStack {
             HStack {
-                Text("Основные характеристики")
+                Text(Texts.Content.main)
                     .font(.boldHeadline())
                     .padding(.leading)
                 Spacer()
             }
+            
             HStack {
-                Text("Производство")
+                Text(Texts.Content.production)
                     .padding(.leading)
+                    .frame(minWidth: 90)
                     .font(.subhead())
                 Spacer()
-                Text("..............")
+                Line()
+                    .stroke(style: .init(dash: [2]))
+                    .foregroundStyle(.labelTertiary)
+                    .frame(height: 1)
                 Spacer()
                 Text("\(chars.production.country), \(chars.production.town)")
                     .multilineTextAlignment(.trailing)
                     .font(.subhead())
                     .padding(.bottom, -18)
+                    .frame(minWidth: 180)
                     .padding(.trailing)
             }
             .padding(.top, 1)
+            
             HStack {
-                Text("Энергетическая ценность, ккал/100 г")
+                Text(Texts.Content.energy)
                     .padding(.leading)
                     .font(.subhead())
+                    .frame(minWidth: 164)
                 Spacer()
-                Text("............................")
+                Line()
+                    .stroke(style: .init(dash: [2]))
+                    .foregroundStyle(.labelTertiary)
+                    .frame(height: 1)
                 Spacer()
                 Text(chars.calories)
                     .multilineTextAlignment(.trailing)
@@ -49,12 +65,16 @@ struct CharacteristicsView: View {
                     .padding(.trailing)
             }
             .padding(.top, 20)
+            
             HStack {
-                Text("Жиры/100 г")
+                Text(Texts.Content.fats)
                     .padding(.leading)
                     .font(.subhead())
                 Spacer()
-                Text(".................................................")
+                Line()
+                    .stroke(style: .init(dash: [2]))
+                    .foregroundStyle(.labelTertiary)
+                    .frame(height: 1)
                 Spacer()
                 Text(chars.fats)
                     .multilineTextAlignment(.trailing)
@@ -62,12 +82,16 @@ struct CharacteristicsView: View {
                     .padding(.trailing)
             }
             .padding(.top, 10)
+            
             HStack {
-                Text("Белки/100 г")
+                Text(Texts.Content.squirrels)
                     .padding(.leading)
                     .font(.subhead())
                 Spacer()
-                Text(".................................................")
+                Line()
+                    .stroke(style: .init(dash: [2]))
+                    .foregroundStyle(.labelTertiary)
+                    .frame(height: 1)
                 Spacer()
                 Text(chars.squirrels)
                     .multilineTextAlignment(.trailing)
@@ -75,12 +99,16 @@ struct CharacteristicsView: View {
                     .padding(.trailing)
             }
             .padding(.top, 10)
+            
             HStack {
-                Text("Углеводы/100 г")
+                Text(Texts.Content.carbohydrates)
                     .padding(.leading)
                     .font(.subhead())
                 Spacer()
-                Text("...........................................")
+                Line()
+                    .stroke(style: .init(dash: [2]))
+                    .foregroundStyle(.labelTertiary)
+                    .frame(height: 1)
                 Spacer()
                 Text(chars.carbohydrates)
                     .multilineTextAlignment(.trailing)
@@ -88,9 +116,10 @@ struct CharacteristicsView: View {
                     .padding(.trailing)
             }
             .padding(.top, 10)
+            
             HStack {
                 Button(action: {}, label: {
-                    Text("Все характеристики")
+                    Text(Texts.Content.allChars)
                         .font(.boldHeadline())
                         .foregroundStyle(Color.IconColors.iconsForeground)
                 })
@@ -98,6 +127,15 @@ struct CharacteristicsView: View {
                 Spacer()
             }
         }
+    }
+}
+
+struct Line: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: 0, y: 5))
+        path.addLine(to: CGPoint(x: rect.width, y: 5))
+        return path
     }
 }
 

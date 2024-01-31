@@ -15,13 +15,17 @@ struct PriceView: View {
     
     var body: some View {
         VStack {
-            Divider()
-                .background(Color.LabelColors.labelWhite)
-                .shadow(color: Color.black, radius: 4, x: 0, y: -2)
-                .padding(.top)
+            divider
             segmentedControl
             price
         }
+    }
+    
+    var divider: some View {
+        Divider()
+            .background(Color.LabelColors.labelWhite)
+            .shadow(color: Color.black, radius: 4, x: 0, y: -2)
+            .padding(.top)
     }
     
     var segmentedControl: some View {
@@ -39,9 +43,9 @@ struct PriceView: View {
                 HStack {
                     Text(String(
                         type == 0 ? prices.currentItemPrice : prices.currentKgPrice))
-                    
-                        .padding(.leading, 20)
+                
                         .font(.largeTitle())
+                        .padding(.leading, 20)
                     Text("₽/кг")
                         .padding(.leading, -3)
                         .font(.subhead())
@@ -51,8 +55,8 @@ struct PriceView: View {
                     Text(String(
                         type == 0 ? prices.regularItemPrice : prices.regularKgPrice))
                     
-                        .padding(.leading, 20)
                         .font(.subhead())
+                        .padding(.leading, 20)
                         .strikethrough()
                         .foregroundStyle(Color.LabelColors.labelTertiary)
                     Spacer()

@@ -58,7 +58,7 @@ struct ImagePresentView: View {
                 .padding(.leading, -5)
             
             Spacer()
-            Text("-5%")
+            Text(sale)
                 .font(.footnote())
                 .foregroundStyle(Color.LabelColors.labelWhite)
                 .padding(.top, 8)

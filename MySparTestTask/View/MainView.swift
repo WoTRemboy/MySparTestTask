@@ -11,7 +11,7 @@ struct MainView: View {
     
     @State var isLiked = false
         
-    let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
+    let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale)
     let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
     let characteristics = CharacteristicsView(chars: MockData.item.characteristics)
     let reviews = ReviewsView(reviewsData: MockData.item.reviews)
@@ -39,27 +39,27 @@ struct MainView: View {
         .tabItem {
             Image.Icons.main
                 .environment(\.symbolVariants, .none)
-            Text("Главная")
+            Text(Texts.Tabs.main)
         }
             CatalogView()
                 .tabItem {
                     Image.Icons.catalog
                         .environment(\.symbolVariants, .none)
-                    Text("Каталог")
+                    Text(Texts.Tabs.catalog)
                 }
             
             CartView()
                 .tabItem {
                     Image.Icons.cart
                         .environment(\.symbolVariants, .none)
-                    Text("First")
+                    Text(Texts.Tabs.cart)
                 }
             
             ProfileView()
                 .tabItem {
                     Image.Icons.profile
                         .environment(\.symbolVariants, .none)
-                    Text("First")
+                    Text(Texts.Tabs.profile)
                 }
         }
     }

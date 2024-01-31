@@ -18,12 +18,12 @@ struct ReviewsView: View {
     
     var top: some View {
         HStack {
-            Text("Отзывы")
+            Text(Texts.Content.reviews)
                 .font(.title())
                 .padding(.leading)
             Spacer()
             Button(action: {}, label: {
-                Text("Все \(reviewsData.count)")
+                Text("\(Texts.Content.allReviews) \(reviewsData.count)")
                     .foregroundStyle(Color.IconColors.iconsForeground)
                     .font(.boldHeadline())
             })
@@ -45,7 +45,7 @@ struct ReviewsView: View {
     
     var newReview: some View {
         Button(action: {}, label: {
-            Text("Оставить отзыв")
+            Text(Texts.Content.publishReview)
                 .font(.boldHeadline())
                 .foregroundStyle(Color.IconColors.iconsForeground)
             

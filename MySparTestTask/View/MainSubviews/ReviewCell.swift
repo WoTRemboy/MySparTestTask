@@ -54,8 +54,8 @@ struct ReviewCell: View {
     var description: some View {
         HStack {
             Text(review.description)
-                .padding(.top, 5)
                 .font(.subhead())
+                .padding(.top, 5)
             Spacer()
         }
     }

@@ -10,6 +10,19 @@ import Foundation
 class Texts {
     enum Content {
         static let cardPrice = "Цена по карте"
+        static let description = "Описание"
+        
+        static let main = "Основные характеристики"
+        static let production = "Производство"
+        static let energy = "Энергетическая ценность, ккал/100 г"
+        static let fats = "Жиры/100 г"
+        static let squirrels = "Белки/100 г"
+        static let carbohydrates = "Углеводы/100 г"
+        static let allChars = "Все характеристики"
+        
+        static let reviews = "Отзывы"
+        static let allReviews = "Все"
+        static let publishReview = "Оставить отзыв"
     }
     
     enum MockData {
@@ -28,5 +41,15 @@ class Texts {
         
         static let userName = "Александр В."
         static let reviewDescription = "Хорошая добавка, мне очень понравилось! Хочу, чтобы все добавки были такими!"
+        
+        static let reviewCount = "19 отзывов"
+        static let sale = "-5%"
+    }
+    
+    enum Tabs {
+        static let main = "Главная"
+        static let catalog = "Каталог"
+        static let cart = "Карзина"
+        static let profile = "Профиль"
     }
 }
