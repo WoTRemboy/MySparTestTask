@@ -108,6 +108,8 @@ struct PriceView: View {
     }
 }
 
-#Preview {
-    PriceView(prices: MockData.item.price)
+struct PriceView_Previews: PreviewProvider {
+    static var previews: some View {
+        PriceView(prices: MockData.item.price)
+    }
 }

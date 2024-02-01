@@ -63,6 +63,8 @@ struct ReviewsView: View {
     }
 }
 
-#Preview {
-    ReviewsView(reviewsData: MockData.item.reviews)
+struct ReviewsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReviewsView(reviewsData: MockData.item.reviews)
+    }
 }

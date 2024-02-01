@@ -59,6 +59,8 @@ struct TitleDescriptionView: View {
     }
 }
 
-#Preview {
-    TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
+struct TitleDescriptionView_Previews: PreviewProvider {
+    static var previews: some View {
+        TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
+    }
 }

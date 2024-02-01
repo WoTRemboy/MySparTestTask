@@ -32,7 +32,7 @@ struct CharacteristicsView: View {
                 Spacer()
                 Line()
                     .stroke(style: .init(dash: [2]))
-                    .foregroundStyle(.labelTertiary)
+                    .foregroundStyle(Color.LabelColors.labelTertiary)
                     .frame(height: 1)
                 Spacer()
                 Text("\(chars.production.country), \(chars.production.town)")
@@ -52,7 +52,7 @@ struct CharacteristicsView: View {
                 Spacer()
                 Line()
                     .stroke(style: .init(dash: [2]))
-                    .foregroundStyle(.labelTertiary)
+                    .foregroundStyle(Color.LabelColors.labelTertiary)
                     .frame(height: 1)
                 Spacer()
                 Text(chars.calories)
@@ -69,7 +69,7 @@ struct CharacteristicsView: View {
                 Spacer()
                 Line()
                     .stroke(style: .init(dash: [2]))
-                    .foregroundStyle(.labelTertiary)
+                    .foregroundStyle(Color.LabelColors.labelTertiary)
                     .frame(height: 1)
                 Spacer()
                 Text(chars.fats)
@@ -86,7 +86,7 @@ struct CharacteristicsView: View {
                 Spacer()
                 Line()
                     .stroke(style: .init(dash: [2]))
-                    .foregroundStyle(.labelTertiary)
+                    .foregroundStyle(Color.LabelColors.labelTertiary)
                     .frame(height: 1)
                 Spacer()
                 Text(chars.squirrels)
@@ -103,7 +103,7 @@ struct CharacteristicsView: View {
                 Spacer()
                 Line()
                     .stroke(style: .init(dash: [2]))
-                    .foregroundStyle(.labelTertiary)
+                    .foregroundStyle(Color.LabelColors.labelTertiary)
                     .frame(height: 1)
                 Spacer()
                 Text(chars.carbohydrates)
@@ -136,6 +136,8 @@ struct Line: Shape {
     }
 }
 
-#Preview {
-    CharacteristicsView(chars: MockData.item.characteristics)
+struct CharacteristicsView_Previews: PreviewProvider {
+    static var previews: some View {
+        CharacteristicsView(chars: MockData.item.characteristics)
+    }
 }

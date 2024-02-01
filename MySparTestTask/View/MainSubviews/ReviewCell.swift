@@ -71,6 +71,8 @@ struct ReviewCell: View {
     }
 }
 
-#Preview {
-    ReviewCell(review: MockData.item.reviews[0])
+struct ReviewCell_Previews: PreviewProvider {
+    static var previews: some View {
+        ReviewCell(review: MockData.item.reviews[0])
+    }
 }

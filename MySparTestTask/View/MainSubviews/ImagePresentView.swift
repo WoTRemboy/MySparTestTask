@@ -90,7 +90,8 @@ struct CurvedRectangle: Shape {
     }
 }
 
-
-#Preview {
-    ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
+struct ImagePresentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
+    }
 }
