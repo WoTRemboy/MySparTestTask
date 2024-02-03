@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CartView: View {
-    var body: some View {
+    internal var body: some View {
         Text(Texts.Tabs.cart)
+            .tabItem {
+                Image.Icons.cart
+                    .environment(\.symbolVariants, .none)
+                Text(Texts.Tabs.cart)
+            }
     }
 }
 

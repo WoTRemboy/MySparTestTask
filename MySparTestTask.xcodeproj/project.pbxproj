@@ -28,6 +28,9 @@
 		634F3FCC2B6AEB9800C01426 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FCB2B6AEB9800C01426 /* CatalogView.swift */; };
 		634F3FCE2B6AEBA200C01426 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FCD2B6AEBA200C01426 /* CartView.swift */; };
 		634F3FD02B6AEBB100C01426 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F3FCF2B6AEBB100C01426 /* ProfileView.swift */; };
+		63D51B5A2B6D566400FF4526 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51B592B6D566400FF4526 /* MockData.swift */; };
+		63D51B5D2B6D91E300FF4526 /* CustomShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51B5C2B6D91E300FF4526 /* CustomShapes.swift */; };
+		63D51B5F2B6D9CE800FF4526 /* CharacteristicsPointSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51B5E2B6D9CE800FF4526 /* CharacteristicsPointSubview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		634F3FCB2B6AEB9800C01426 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 		634F3FCD2B6AEBA200C01426 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		634F3FCF2B6AEBB100C01426 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		63D51B592B6D566400FF4526 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		63D51B5C2B6D91E300FF4526 /* CustomShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapes.swift; sourceTree = "<group>"; };
+		63D51B5E2B6D9CE800FF4526 /* CharacteristicsPointSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPointSubview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				634F3FAC2B6A5B6500C01426 /* Model.swift */,
+				63D51B592B6D566400FF4526 /* MockData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 				634F3FAF2B6A5BD700C01426 /* Extentions */,
 				634F3FBC2B6A889C00C01426 /* Labels.swift */,
 				634F3FC42B6AC55C00C01426 /* DateFormatting.swift */,
+				63D51B5C2B6D91E300FF4526 /* CustomShapes.swift */,
 				634F3F9C2B6A59A000C01426 /* Assets.xcassets */,
 			);
 			path = Helpers;
@@ -174,12 +182,29 @@
 			children = (
 				634F3FBA2B6A844500C01426 /* ImagePresentView.swift */,
 				634F3FBE2B6A9F2900C01426 /* TitleDescriptionView.swift */,
-				634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */,
-				634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */,
-				634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */,
+				63D51B602B6D9DCE00FF4526 /* Characteristics */,
+				63D51B612B6D9DEE00FF4526 /* Reviews */,
 				634F3FC82B6AD36900C01426 /* PriceView.swift */,
 			);
 			path = MainSubviews;
+			sourceTree = "<group>";
+		};
+		63D51B602B6D9DCE00FF4526 /* Characteristics */ = {
+			isa = PBXGroup;
+			children = (
+				634F3FC02B6AAA4B00C01426 /* CharacteristicsView.swift */,
+				63D51B5E2B6D9CE800FF4526 /* CharacteristicsPointSubview.swift */,
+			);
+			path = Characteristics;
+			sourceTree = "<group>";
+		};
+		63D51B612B6D9DEE00FF4526 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				634F3FC22B6ABD1D00C01426 /* ReviewsView.swift */,
+				634F3FC62B6ACAFE00C01426 /* ReviewCell.swift */,
+			);
+			path = Reviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				634F3FCE2B6AEBA200C01426 /* CartView.swift in Sources */,
+				63D51B5F2B6D9CE800FF4526 /* CharacteristicsPointSubview.swift in Sources */,
 				634F3F9B2B6A599E00C01426 /* MainView.swift in Sources */,
 				634F3FC72B6ACAFE00C01426 /* ReviewCell.swift in Sources */,
 				634F3FBB2B6A844500C01426 /* ImagePresentView.swift in Sources */,
@@ -261,8 +287,10 @@
 				634F3FAB2B6A5B4000C01426 /* ViewModel.swift in Sources */,
 				634F3FB52B6A5C2900C01426 /* ImageExtention.swift in Sources */,
 				634F3FC32B6ABD1D00C01426 /* ReviewsView.swift in Sources */,
+				63D51B5A2B6D566400FF4526 /* MockData.swift in Sources */,
 				634F3FC92B6AD36900C01426 /* PriceView.swift in Sources */,
 				634F3FB72B6A7CEF00C01426 /* ViewModifiers.swift in Sources */,
+				63D51B5D2B6D91E300FF4526 /* CustomShapes.swift in Sources */,
 				634F3FB12B6A5C0900C01426 /* ColorExtention.swift in Sources */,
 				634F3FC12B6AAA4B00C01426 /* CharacteristicsView.swift in Sources */,
 				634F3FBD2B6A889C00C01426 /* Labels.swift in Sources */,

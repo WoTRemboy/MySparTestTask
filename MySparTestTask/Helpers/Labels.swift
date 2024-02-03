@@ -23,6 +23,15 @@ class Texts {
         static let reviews = "Отзывы"
         static let allReviews = "Все"
         static let publishReview = "Оставить отзыв"
+        
+        static let accountingType = "Accounting type"
+        static let itemsCount = "Шт"
+        static let kilograms = "Кг"
+        static let itemsCountLow = " шт"
+        static let kilogramsLow = " кг"
+        static let pricePerItem = "₽/шт"
+        static let pricePerKg = "₽/кг"
+        static let ruble = "₽"
     }
     
     enum MockData {
@@ -44,12 +53,15 @@ class Texts {
         
         static let reviewCount = "19 отзывов"
         static let sale = "-5%"
+        
+        static let itemImage = "https://s.myspar.ru/upload/img/10/1007/100788801.webp?1610679940"
+        static let countyImage = "https://diplomat-consulting.ru/upload/medialibrary/efb/07lft3ut1gp2xs4ztp82aj4p0qcfq5p4.jpg"
     }
     
     enum Tabs {
         static let main = "Главная"
         static let catalog = "Каталог"
-        static let cart = "Карзина"
+        static let cart = "Корзина"
         static let profile = "Профиль"
     }
 }

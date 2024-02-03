@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var body: some View {
+    internal var body: some View {
         Text(Texts.Tabs.profile)
+            .tabItem {
+                Image.Icons.profile
+                    .environment(\.symbolVariants, .none)
+                Text(Texts.Tabs.profile)
+            }
     }
 }
 

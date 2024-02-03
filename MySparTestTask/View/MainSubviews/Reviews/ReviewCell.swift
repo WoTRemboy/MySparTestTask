@@ -9,23 +9,23 @@ import SwiftUI
 
 struct ReviewCell: View {
     
-    var review: Review
+    private var review: Review
     
-    var body: some View {
+    init(review: Review) {
+        self.review = review
+    }
+    
+    internal var body: some View {
         VStack {
             name
             date
             ratingStars
             description
         }
-        .padding(.leading, 10)
-        .frame(width: 250, height: 160)
-        .background(Color.BackColors.backDefault)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: Color.BackColors.backSplash, radius: 10)
+        .modifier(ReviewCellSetup())
     }
     
-    var name: some View {
+    private var name: some View {
         HStack {
             Text(review.userName)
                 .font(.boldHeadline())
@@ -33,7 +33,7 @@ struct ReviewCell: View {
         }
     }
     
-    var date: some View {
+    private var date: some View {
         HStack {
             Text(Date.formattedDate(date: review.date))
                 .font(.subhead())
@@ -43,7 +43,7 @@ struct ReviewCell: View {
         }
     }
     
-    var ratingStars: some View {
+    private var ratingStars: some View {
         HStack {
             stars
                 .padding(.top, -3)
@@ -51,7 +51,7 @@ struct ReviewCell: View {
         }
     }
     
-    var description: some View {
+    private var description: some View {
         HStack {
             Text(review.description)
                 .font(.subhead())
@@ -60,19 +60,19 @@ struct ReviewCell: View {
         }
     }
     
-    var stars: some View {
+    private var stars: some View {
         HStack {
             ForEach(1..<6) { index in
                 Image.Icons.star
                     .foregroundStyle(index <= review.rating ? Color.IconColors.starHighlighted : Color.IconColors.starDownplay)
                     .font(.subhead())
-            } // to change stars depanding on rating data
+            } // to show stars depanding on rating data
         }
     }
 }
 
 struct ReviewCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewCell(review: MockData.item.reviews[0])
+        ReviewCell(review: MockData.mockItem.reviews[0])
     }
 }

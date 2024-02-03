@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct TitleDescriptionView: View {
-    let name: String
-    let homeland: Homeland
-    let descriptionText: String
+    private let name: String
+    private let homeland: Homeland
+    private let descriptionText: String
     
-    var body: some View {
+    init(name: String, homeland: Homeland, descriptionText: String) {
+        self.name = name
+        self.homeland = homeland
+        self.descriptionText = descriptionText
+    }
+    
+    internal var body: some View {
         VStack {
             title
             country
@@ -20,7 +26,7 @@ struct TitleDescriptionView: View {
         }
     }
     
-    var title: some View {
+    private var title: some View {
         HStack {
             Text(name)
                 .font(.largeTitle())
@@ -29,20 +35,21 @@ struct TitleDescriptionView: View {
         }
     }
     
-    var country: some View {
+    private var country: some View {
         HStack {
-            homeland.image?
-                .resizable()
-                .frame(width: 25, height: 25)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .padding(.leading)
+            AsyncImage(url: URL(string: homeland.image ?? "")) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+                .modifier(OriginCountryImageSetup())
             Text("\(homeland.country), \(homeland.town)")
                 .padding(.leading, 5)
             Spacer()
         }
     }
     
-    var description: some View {
+    private var description: some View {
         VStack {
             HStack {
                 Text(Texts.Content.description)
@@ -61,6 +68,6 @@ struct TitleDescriptionView: View {
 
 struct TitleDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
+        TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description)
     }
 }

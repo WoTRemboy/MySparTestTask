@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct PriceView: View {
-    @State var type = 0
-    @State var count = 0
+    @State private var type: AccountingType = .units
+    @StateObject private var viewModel = ViewModel()
     
-    var prices: Price
+    private var prices: Price
     
-    var body: some View {
+    init(prices: Price) {
+        self.prices = prices
+    }
+    
+    internal var body: some View {
         VStack {
             divider
             segmentedControl
@@ -21,45 +25,43 @@ struct PriceView: View {
         }
     }
     
-    var divider: some View {
+    private var divider: some View {
         Divider()
-            .background(Color.LabelColors.labelWhite)
-            .shadow(color: Color.black, radius: 4, x: 0, y: -2)
-            .padding(.top)
+            .modifier(DividerSetup())
     }
     
-    var segmentedControl: some View {
-        Picker("Accounting type", selection: $type) {
-            Text("Шт").tag(0)
-            Text("Кг").tag(1)
+    private var segmentedControl: some View {
+        Picker(Texts.Content.accountingType, selection: $type) {
+            Text(Texts.Content.itemsCount).tag(AccountingType.units)
+            Text(Texts.Content.kilograms).tag(AccountingType.kg)
         }
         .pickerStyle(.segmented)
         .padding(.horizontal)
+        .onChange(of: type, perform: { _ in
+            viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
+        })
     }
     
     // MARK: Price depends on segmented type selected
-    var price: some View {
+    private var price: some View {
         HStack {
             VStack {
                 HStack {
                     Text(String(
-                        type == 0 ? prices.currentItemPrice : prices.currentKgPrice))
-                
+                        type == .units ? prices.currentItemPrice : prices.currentKgPrice))
                         .font(.largeTitle())
                         .padding(.leading, 20)
-                    Text("₽/кг")
+                    
+                    Text(type == .units ? Texts.Content.pricePerItem : Texts.Content.pricePerKg)
                         .padding(.leading, -3)
                         .font(.subhead())
+                    
                     Spacer()
                 }
                 HStack {
                     Text(String(
-                        type == 0 ? prices.regularItemPrice : prices.regularKgPrice))
-                    
-                        .font(.subhead())
-                        .padding(.leading, 20)
-                        .strikethrough()
-                        .foregroundStyle(Color.LabelColors.labelTertiary)
+                        type == .units ? prices.regularItemPrice : prices.regularKgPrice))
+                        .modifier(OldPriceSetup())
                     Spacer()
                 }
             }
@@ -70,46 +72,44 @@ struct PriceView: View {
     }
     
     // MARK: With elementary logical implementation
-    var counter: some View {
+    private var counter: some View {
         HStack {
+            // "Minus" Button
             Button(action: {
-                guard count > 0 else { return }
-                count -= 1
+                viewModel.minusItemFromCart()
+                viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
             }, label: {
                 Image.Icons.minus
                     .foregroundStyle(Color.LabelColors.labelWhite)
             })
             .padding(.horizontal, 15)
             
+            // "Count" and "total price" labels
             VStack {
-                Text(String(count) + (type == 0 ? " шт" : " кг"))
+                Text(String(viewModel.itemsInCartCount) + (type == .units ? Texts.Content.itemsCountLow : Texts.Content.kilogramsLow))
                     .font(.boldSubhead())
                     .foregroundStyle(Color.LabelColors.labelWhite)
-                Text(String(
-                    format: count == 0 ? "%.0f" : "%.1f", type == 0 ? (prices.currentItemPrice * Float(count)) : (prices.currentKgPrice * Float(count))) + "₽")
                 
-                    .font(.cart())
-                    .foregroundStyle(Color.LabelColors.labelWhite)
-                    .frame(width: 50)
+                Text(String(format: viewModel.configFormat(), viewModel.totalPrice) + Texts.Content.ruble)
+                    .modifier(TotalPriceSetup())
             }
             
+            // "Plus" Button
             Button(action: {
-                guard count < 100 else { return }
-                count += 1
+                viewModel.plusItemToCart()
+                viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
             }, label: {
                 Image.Icons.plus
                     .foregroundStyle(Color.LabelColors.labelWhite)
             })
             .padding(.horizontal, 15)
         }
-        .padding(.vertical, 5)
-        .background(Color.IconColors.counterBackground)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .modifier(CounterBackgroundSetup())
     }
 }
 
 struct PriceView_Previews: PreviewProvider {
     static var previews: some View {
-        PriceView(prices: MockData.item.price)
+        PriceView(prices: MockData.mockItem.price)
     }
 }

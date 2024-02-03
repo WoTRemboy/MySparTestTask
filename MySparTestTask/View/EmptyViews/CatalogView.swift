@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CatalogView: View {
-    var body: some View {
+    internal var body: some View {
         Text(Texts.Tabs.catalog)
+            .tabItem {
+                Image.Icons.catalog
+                    .environment(\.symbolVariants, .none)
+                Text(Texts.Tabs.catalog)
+            }
     }
 }
 
