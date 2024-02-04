@@ -25,10 +25,10 @@ extension Image {
         static let star = Image(systemName: "star.fill")
         static let plus = Image(systemName: "plus")
         static let minus = Image(systemName: "minus")
-        static let main = Image(systemName: "arrow.up.circle")
-        static let catalog = Image(systemName: "circle.grid.2x2")
-        static let cart = Image(systemName: "cart")
-        static let profile = Image(systemName: "person")
+        static let main = Image("MainTabIcon")
+        static let catalog = Image("CatalogTabIcon")
+        static let cart = Image("CartTabIcon")
+        static let profile = Image("ProfileTabIcon")
     }
     
 }

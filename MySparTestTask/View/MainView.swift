@@ -37,7 +37,7 @@ struct MainView: View {
         }
         .tabItem {
             Image.Icons.main
-//                .environment(\.symbolVariants, .none)
+                .renderingMode(.template)
             Text(Texts.Tabs.main)
         }
             CatalogView()
