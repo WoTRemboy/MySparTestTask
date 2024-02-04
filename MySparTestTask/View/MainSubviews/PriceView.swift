@@ -38,7 +38,7 @@ struct PriceView: View {
         .pickerStyle(.segmented)
         .padding(.horizontal)
         .onChange(of: type, perform: { _ in
-            viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
+            viewModel.cartReset()
         })
     }
     

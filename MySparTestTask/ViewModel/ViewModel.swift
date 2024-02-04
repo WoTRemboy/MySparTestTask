@@ -39,6 +39,11 @@ class ViewModel: ObservableObject {
         }
     }
     
+    public func cartReset() {
+        itemsInCartCount = 0
+        totalPrice = 0
+    }
+    
     public func configFormat() -> String {
         if itemsInCartCount == 0 { return "%.0f" }
         return "%.1f"

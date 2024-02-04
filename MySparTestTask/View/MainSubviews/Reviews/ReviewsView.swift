@@ -45,6 +45,7 @@ struct ReviewsView: View {
             }
             .padding()
         }
+        .scrollIndicators(.hidden)
     }
     
     private var newReview: some View {
