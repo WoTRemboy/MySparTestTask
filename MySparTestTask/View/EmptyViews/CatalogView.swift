@@ -12,7 +12,7 @@ struct CatalogView: View {
         Text(Texts.Tabs.catalog)
             .tabItem {
                 Image.Icons.catalog
-                    .environment(\.symbolVariants, .none)
+//                    .environment(\.symbolVariants, .none)
                 Text(Texts.Tabs.catalog)
             }
     }

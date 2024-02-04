@@ -33,7 +33,7 @@ struct CharacteristicsPointSubview: View {
             Spacer()
             Line()
                 .stroke(style: .init(dash: [2]))
-                .foregroundStyle(Color.LabelColors.labelTertiary)
+                .foregroundColor(Color.LabelColors.labelTertiary)
                 .frame(height: 1)
             Spacer()
             Text(value)

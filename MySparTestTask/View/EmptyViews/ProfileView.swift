@@ -12,7 +12,7 @@ struct ProfileView: View {
         Text(Texts.Tabs.profile)
             .tabItem {
                 Image.Icons.profile
-                    .environment(\.symbolVariants, .none)
+//                    .environment(\.symbolVariants, .none)
                 Text(Texts.Tabs.profile)
             }
     }

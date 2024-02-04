@@ -28,7 +28,7 @@ struct ReviewsView: View {
             Spacer()
             Button(action: {}, label: {
                 Text("\(Texts.Content.allReviews) \(reviewsData.count)")
-                    .foregroundStyle(Color.IconColors.iconsForeground)
+                    .foregroundColor(Color.IconColors.iconsForeground)
                     .font(.boldHeadline())
             })
             .padding(.trailing)
@@ -36,7 +36,7 @@ struct ReviewsView: View {
     }
     
     private var reviews: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 ForEach(reviewsData, id: \.id) { review in
                     ReviewCell(review: review) // custom review cell
@@ -45,7 +45,6 @@ struct ReviewsView: View {
             }
             .padding()
         }
-        .scrollIndicators(.hidden)
     }
     
     private var newReview: some View {

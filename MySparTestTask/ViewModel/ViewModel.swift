@@ -11,9 +11,11 @@ import SwiftUI
 class ViewModel: ObservableObject {
     
     @Published private(set) var isLiked = false
+    @Published private(set) var image = UIImage.Content.noImage
+    
     @Published private(set) var itemsInCartCount = 1
     @Published private(set) var totalPrice: Float = 0
-        
+    
     public func toggleLike() {
         withAnimation {
             isLiked.toggle()
@@ -47,5 +49,25 @@ class ViewModel: ObservableObject {
     public func configFormat() -> String {
         if itemsInCartCount == 0 { return "%.0f" }
         return "%.1f"
+    }
+    
+    public func loadImage(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard error == nil else {
+                print(error ?? "Loading image error")
+                return
+            }
+            guard let data = data else {
+                print("No image data found")
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                guard let loadedImage = UIImage(data: data) else { return }
+                self?.image = loadedImage
+            }
+        }
+        .resume()
     }
 }

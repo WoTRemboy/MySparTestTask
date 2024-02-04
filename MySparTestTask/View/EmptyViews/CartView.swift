@@ -12,7 +12,7 @@ struct CartView: View {
         Text(Texts.Tabs.cart)
             .tabItem {
                 Image.Icons.cart
-                    .environment(\.symbolVariants, .none)
+//                    .environment(\.symbolVariants, .none)
                 Text(Texts.Tabs.cart)
             }
     }

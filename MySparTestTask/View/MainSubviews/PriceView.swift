@@ -49,8 +49,8 @@ struct PriceView: View {
                 HStack {
                     Text(String(
                         type == .units ? prices.currentItemPrice : prices.currentKgPrice))
-                        .font(.largeTitle())
-                        .padding(.leading, 20)
+                    .font(.largeTitle())
+                    .padding(.leading, 20)
                     
                     Text(type == .units ? Texts.Content.pricePerItem : Texts.Content.pricePerKg)
                         .padding(.leading, -3)
@@ -61,7 +61,13 @@ struct PriceView: View {
                 HStack {
                     Text(String(
                         type == .units ? prices.regularItemPrice : prices.regularKgPrice))
-                        .modifier(OldPriceSetup())
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(Color.LabelColors.labelTertiary),
+                        alignment: .center
+                    ) // strikethrough text
+                    .modifier(OldPriceSetup())
                     Spacer()
                 }
             }
@@ -80,7 +86,7 @@ struct PriceView: View {
                 viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
             }, label: {
                 Image.Icons.minus
-                    .foregroundStyle(Color.LabelColors.labelWhite)
+                    .foregroundColor(Color.LabelColors.labelWhite)
             })
             .padding(.horizontal, 15)
             
@@ -88,7 +94,7 @@ struct PriceView: View {
             VStack {
                 Text(String(viewModel.itemsInCartCount) + (type == .units ? Texts.Content.itemsCountLow : Texts.Content.kilogramsLow))
                     .font(.boldSubhead())
-                    .foregroundStyle(Color.LabelColors.labelWhite)
+                    .foregroundColor(Color.LabelColors.labelWhite)
                 
                 Text(String(format: viewModel.configFormat(), viewModel.totalPrice) + Texts.Content.ruble)
                     .modifier(TotalPriceSetup())
@@ -103,7 +109,7 @@ struct PriceView: View {
                 viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
             }, label: {
                 Image.Icons.plus
-                    .foregroundStyle(Color.LabelColors.labelWhite)
+                    .foregroundColor(Color.LabelColors.labelWhite)
             })
             .padding(.horizontal, 15)
         }

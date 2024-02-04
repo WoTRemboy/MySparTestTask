@@ -18,8 +18,8 @@ struct NavigationSetup: ViewModifier {
     
     internal func body(content: Content) -> some View {
         content
-            .fontWeight(.medium)
-            .foregroundStyle(Color.IconColors.iconsForeground)
+            .font(.segmentTitle())
+            .foregroundColor(Color.IconColors.iconsForeground)
             .frame(width: size.width, height: size.height)
     }
 }
@@ -29,7 +29,7 @@ struct CardPriceSetup: ViewModifier {
     internal func body(content: Content) -> some View {
         content
             .font(.footnote)
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundColor(Color.LabelColors.labelWhite)
             .padding(8)
             .background(Color.IconColors.cardPriceBackground)
             .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -40,7 +40,7 @@ struct CardPriceSetup: ViewModifier {
 struct TertiaryReviewTextSetup: ViewModifier {
     internal func body(content: Content) -> some View {
         content
-            .foregroundStyle(Color.LabelColors.labelTertiary)
+            .foregroundColor(Color.LabelColors.labelTertiary)
             .padding(.leading, -5)
     }
 }
@@ -49,7 +49,7 @@ struct SaveViewSetup: ViewModifier {
     internal func body(content: Content) -> some View {
         content
             .font(.footnote())
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundColor(Color.LabelColors.labelWhite)
             .padding(.top, 8)
             .background(CurvedRectangle()
                 .foregroundColor(.IconColors.saleBackground)
@@ -73,7 +73,7 @@ struct NewReviewButtonSetup: ViewModifier {
     internal func body(content: Content) -> some View {
         content
             .font(.boldHeadline())
-            .foregroundStyle(Color.IconColors.iconsForeground)
+            .foregroundColor(Color.IconColors.iconsForeground)
         
             .frame(
                 width: UIScreen.main.bounds.width - 32,
@@ -115,8 +115,7 @@ struct OldPriceSetup: ViewModifier {
         content
             .font(.subhead())
             .padding(.leading, 20)
-            .strikethrough()
-            .foregroundStyle(Color.LabelColors.labelTertiary)
+            .foregroundColor(Color.LabelColors.labelTertiary)
     }
 }
 
@@ -124,7 +123,7 @@ struct TotalPriceSetup: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.cart())
-            .foregroundStyle(Color.LabelColors.labelWhite)
+            .foregroundColor(Color.LabelColors.labelWhite)
             .frame(width: 50)
     }
 }

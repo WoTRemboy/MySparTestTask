@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ImagePresentView: View {
+    @StateObject private var viewModel = ViewModel()
+    
     private let averageRating: Float
     private let reviewsCount: String
     private let sale: String
-    private let imageData: String
+    private let imageURL: String
     
-    init(averageRating: Float, reviewsCount: String, sale: String, imageData: String) {
+    init(averageRating: Float, reviewsCount: String, sale: String, imageURL: String) {
         self.averageRating = averageRating
         self.reviewsCount = reviewsCount
         self.sale = sale
-        self.imageData = imageData
+        self.imageURL = imageURL
     }
     
     internal var body: some View {
@@ -37,11 +39,11 @@ struct ImagePresentView: View {
     }
     
     private var image: some View {
-        AsyncImage(url: URL(string: MockData.mockItem.image)) { image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
-        }
+        Image(uiImage: viewModel.image ?? UIImage())
+            .resizable()
+            .onAppear {
+                viewModel.loadImage(urlString: imageURL)
+            }
             .frame(width: 220, height: 220)
     }
     
@@ -49,7 +51,7 @@ struct ImagePresentView: View {
         HStack {
             Image.Icons.star
                 .padding(.leading, 20)
-                .foregroundStyle(Color.IconColors.starHighlighted)
+                .foregroundColor(Color.IconColors.starHighlighted)
             
             Text(String(averageRating))
                 .font(.headline())
@@ -73,6 +75,6 @@ struct ImagePresentView: View {
 
 struct ImagePresentView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale, imageData: MockData.mockItem.image)
+        ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale, imageURL: MockData.mockItem.image)
     }
 }

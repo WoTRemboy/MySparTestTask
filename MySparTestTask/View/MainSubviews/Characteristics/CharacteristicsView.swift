@@ -67,7 +67,7 @@ struct CharacteristicsView: View {
             Button(action: {}, label: {
                 Text(Texts.Content.allChars)
                     .font(.boldHeadline())
-                    .foregroundStyle(Color.IconColors.iconsForeground)
+                    .foregroundColor(Color.IconColors.iconsForeground)
             })
             .padding()
             Spacer()

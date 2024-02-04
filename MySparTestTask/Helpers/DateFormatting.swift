@@ -23,6 +23,6 @@ extension Date {
         dateComponents.month = 5
         dateComponents.day = 7
         
-        return calendar.date(from: dateComponents) ?? .now
+        return calendar.date(from: dateComponents) ?? .init(timeIntervalSince1970: 0)
     }
 }

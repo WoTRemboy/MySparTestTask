@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct TitleDescriptionView: View {
+    @StateObject private var viewModel = ViewModel()
+    
     private let name: String
     private let homeland: Homeland
     private let descriptionText: String
+    private let imageURL: String
     
-    init(name: String, homeland: Homeland, descriptionText: String) {
+    init(name: String, homeland: Homeland, descriptionText: String, imageURL: String) {
         self.name = name
         self.homeland = homeland
         self.descriptionText = descriptionText
+        self.imageURL = imageURL
     }
     
     internal var body: some View {
@@ -37,11 +41,11 @@ struct TitleDescriptionView: View {
     
     private var country: some View {
         HStack {
-            AsyncImage(url: URL(string: homeland.image ?? "")) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
+            Image(uiImage: viewModel.image ?? UIImage())
+                .resizable()
+                .onAppear {
+                    viewModel.loadImage(urlString: imageURL)
+                }
                 .modifier(OriginCountryImageSetup())
             Text("\(homeland.country), \(homeland.town)")
                 .padding(.leading, 5)
@@ -68,6 +72,6 @@ struct TitleDescriptionView: View {
 
 struct TitleDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description)
+        TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description, imageURL: MockData.mockItem.homeland.image ?? "")
     }
 }

@@ -20,9 +20,9 @@ struct MainView: View {
                     ScrollView{
                         Spacer()
                         LazyVStack {
-                            ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale, imageData: MockData.mockItem.image)
+                            ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale, imageURL: MockData.mockItem.image)
                             
-                            TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description)
+                            TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description, imageURL: MockData.mockItem.homeland.image ?? "")
                             
                             CharacteristicsView(chars: MockData.mockItem.characteristics)
                             
@@ -37,7 +37,7 @@ struct MainView: View {
         }
         .tabItem {
             Image.Icons.main
-                .environment(\.symbolVariants, .none)
+//                .environment(\.symbolVariants, .none)
             Text(Texts.Tabs.main)
         }
             CatalogView()
@@ -50,7 +50,8 @@ struct MainView: View {
     private var leadingNavButton: some View {
         Button(action: {}, label: {
             Image.Navigation.arrowBack
-                .modifier(NavigationSetup(size: CGSize(width: 20, height: 25)))
+                .resizable()
+                .modifier(NavigationSetup(size: CGSize(width: 20, height: 20)))
         })
     }
     

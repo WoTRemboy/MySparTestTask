@@ -37,7 +37,7 @@ struct ReviewCell: View {
         HStack {
             Text(Date.formattedDate(date: review.date))
                 .font(.subhead())
-                .foregroundStyle(Color.LabelColors.labelTertiary)
+                .foregroundColor(Color.LabelColors.labelTertiary)
                 .padding(.top, -3)
             Spacer()
         }
@@ -64,7 +64,7 @@ struct ReviewCell: View {
         HStack {
             ForEach(1..<6) { index in
                 Image.Icons.star
-                    .foregroundStyle(index <= review.rating ? Color.IconColors.starHighlighted : Color.IconColors.starDownplay)
+                    .foregroundColor(index <= review.rating ? Color.IconColors.starHighlighted : Color.IconColors.starDownplay)
                     .font(.subhead())
             } // to show stars depanding on rating data
         }
