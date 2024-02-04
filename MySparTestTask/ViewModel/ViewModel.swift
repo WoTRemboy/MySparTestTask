@@ -11,7 +11,7 @@ import SwiftUI
 class ViewModel: ObservableObject {
     
     @Published private(set) var isLiked = false
-    @Published private(set) var itemsInCartCount = 0
+    @Published private(set) var itemsInCartCount = 1
     @Published private(set) var totalPrice: Float = 0
         
     public func toggleLike() {
@@ -39,9 +39,9 @@ class ViewModel: ObservableObject {
         }
     }
     
-    public func cartReset() {
-        itemsInCartCount = 0
-        totalPrice = 0
+    public func cartReset(type: AccountingType, pricePerUnit: Float, pricePerKg: Float) {
+        itemsInCartCount = 1
+        countTotalPrice(type: type, pricePerUnit: pricePerUnit, pricePerKg: pricePerKg)
     }
     
     public func configFormat() -> String {

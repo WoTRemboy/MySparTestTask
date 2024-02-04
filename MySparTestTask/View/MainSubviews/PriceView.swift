@@ -38,7 +38,7 @@ struct PriceView: View {
         .pickerStyle(.segmented)
         .padding(.horizontal)
         .onChange(of: type, perform: { _ in
-            viewModel.cartReset()
+            viewModel.cartReset(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
         })
     }
     
@@ -92,6 +92,9 @@ struct PriceView: View {
                 
                 Text(String(format: viewModel.configFormat(), viewModel.totalPrice) + Texts.Content.ruble)
                     .modifier(TotalPriceSetup())
+                    .onAppear {
+                        viewModel.countTotalPrice(type: type, pricePerUnit: prices.currentItemPrice, pricePerKg: prices.currentKgPrice)
+                    }
             }
             
             // "Plus" Button
