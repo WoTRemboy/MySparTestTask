@@ -40,7 +40,7 @@ struct CardPriceSetup: ViewModifier {
 struct TertiaryReviewTextSetup: ViewModifier {
     internal func body(content: Content) -> some View {
         content
-            .foregroundStyle(Color.labelTertiary)
+            .foregroundStyle(Color.LabelColors.labelTertiary)
             .padding(.leading, -5)
     }
 }

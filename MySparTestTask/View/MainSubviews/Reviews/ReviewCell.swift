@@ -37,7 +37,7 @@ struct ReviewCell: View {
         HStack {
             Text(Date.formattedDate(date: review.date))
                 .font(.subhead())
-                .foregroundStyle(Color.labelTertiary)
+                .foregroundStyle(Color.LabelColors.labelTertiary)
                 .padding(.top, -3)
             Spacer()
         }
