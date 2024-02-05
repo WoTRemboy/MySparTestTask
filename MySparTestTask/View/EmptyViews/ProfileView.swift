@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ProfileView: View {
-    var body: some View {
+    internal var body: some View {
         Text(Texts.Tabs.profile)
+            .tabItem {
+                Image.Icons.profile
+                    .renderingMode(.template)
+                Text(Texts.Tabs.profile)
+            }
     }
 }
 
-#Preview {
-    ProfileView()
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView()
+    }
 }

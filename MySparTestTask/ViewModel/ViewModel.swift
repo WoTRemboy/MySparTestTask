@@ -10,50 +10,64 @@ import SwiftUI
 
 class ViewModel: ObservableObject {
     
-}
-
-class MockData {
-    static let item = Product(name: Texts.MockData.name, description: Texts.MockData.description, image: Image.Content.sparLipa, homeland: ConfigSupport.homelandConfig(), characteristics: ConfigSupport.charsConfig(), reviews: ConfigSupport.reviewConfig(count: 3), price: ConfigSupport.priceConfig())
-}
-
-// MARK: Support object configurators
-class ConfigSupport {
-    static func homelandConfig() -> Homeland {
-        let country = Texts.MockData.homelandCountry
-        let town = Texts.MockData.homelandTown
-        let image = Image.Content.spainFlag
-        return Homeland(country: country, town: town, image: image)
-    }
+    @Published private(set) var isLiked = false
+    @Published private(set) var image = UIImage.Content.noImage
     
-    static func charsConfig() -> Characteristics {
-        let production = Homeland(country: Texts.MockData.productionCountry, town: Texts.MockData.productionTown, image: nil)
-        let calories = Texts.MockData.calories
-        let fats = Texts.MockData.fats
-        let squirrels = Texts.MockData.squirrels
-        let carbohydrates = Texts.MockData.carbohydrates
-        return Characteristics(production: production, calories: calories, fats: fats, squirrels: squirrels, carbohydrates: carbohydrates)
-    }
+    @Published private(set) var itemsInCartCount = 1
+    @Published private(set) var totalPrice: Float = 0
     
-    static func reviewConfig(count: Int) -> [Review] {
-        var reviews = [Review]()
-        
-        let username = Texts.MockData.userName
-        let date = Date.configMockDate()
-        let rating = 4
-        let descriprion = Texts.MockData.reviewDescription
-        
-        for _ in 0..<count {
-            reviews.append(Review(userName: username, date: date, rating: rating, description: descriprion))
+    public func toggleLike() {
+        withAnimation {
+            isLiked.toggle()
         }
-        return reviews
     }
     
-    static func priceConfig() -> Price {
-        let regularKgPrice: Float = 199.0
-        let currentKgPrice: Float = 55.9
-        let regularItemPrice: Float = 399.0
-        let currentItemPrice: Float = 120.0
+    public func plusItemToCart() {
+        guard itemsInCartCount < 100 else { return }
+        itemsInCartCount += 1
+    }
+    
+    public func minusItemFromCart() {
+        guard itemsInCartCount > 0 else { return }
+        itemsInCartCount -= 1
+    }
+    
+    public func countTotalPrice(type: AccountingType, pricePerUnit: Float, pricePerKg: Float) {
+        switch type {
+        case .kg:
+            totalPrice = Float(itemsInCartCount) * pricePerKg
+        case .units:
+            totalPrice = Float(itemsInCartCount) * pricePerUnit
+        }
+    }
+    
+    public func cartReset(type: AccountingType, pricePerUnit: Float, pricePerKg: Float) {
+        itemsInCartCount = 1
+        countTotalPrice(type: type, pricePerUnit: pricePerUnit, pricePerKg: pricePerKg)
+    }
+    
+    public func configFormat() -> String {
+        if itemsInCartCount == 0 { return "%.0f" }
+        return "%.1f"
+    }
+    
+    public func loadImage(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
         
-        return Price(regularKgPrice: regularKgPrice, currentKgPrice: currentKgPrice, regularItemPrice: regularItemPrice, currentItemPrice: currentItemPrice)
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard error == nil else {
+                print(error ?? "Loading image error")
+                return
+            }
+            guard let data = data else {
+                print("No image data found")
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                guard let loadedImage = UIImage(data: data) else { return }
+                self?.image = loadedImage
+            }
+        }
+        .resume()
     }
 }

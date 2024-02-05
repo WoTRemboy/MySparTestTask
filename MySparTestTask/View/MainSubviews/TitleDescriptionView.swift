@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct TitleDescriptionView: View {
-    let name: String
-    let homeland: Homeland
-    let descriptionText: String
+    @StateObject private var viewModel = ViewModel()
     
-    var body: some View {
+    private let name: String
+    private let homeland: Homeland
+    private let descriptionText: String
+    private let imageURL: String
+    
+    init(name: String, homeland: Homeland, descriptionText: String, imageURL: String) {
+        self.name = name
+        self.homeland = homeland
+        self.descriptionText = descriptionText
+        self.imageURL = imageURL
+    }
+    
+    internal var body: some View {
         VStack {
             title
             country
@@ -20,7 +30,7 @@ struct TitleDescriptionView: View {
         }
     }
     
-    var title: some View {
+    private var title: some View {
         HStack {
             Text(name)
                 .font(.largeTitle())
@@ -29,20 +39,21 @@ struct TitleDescriptionView: View {
         }
     }
     
-    var country: some View {
+    private var country: some View {
         HStack {
-            homeland.image?
+            Image(uiImage: viewModel.image ?? UIImage())
                 .resizable()
-                .frame(width: 25, height: 25)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .padding(.leading)
+                .onAppear {
+                    viewModel.loadImage(urlString: imageURL)
+                }
+                .modifier(OriginCountryImageSetup())
             Text("\(homeland.country), \(homeland.town)")
                 .padding(.leading, 5)
             Spacer()
         }
     }
     
-    var description: some View {
+    private var description: some View {
         VStack {
             HStack {
                 Text(Texts.Content.description)
@@ -59,6 +70,8 @@ struct TitleDescriptionView: View {
     }
 }
 
-#Preview {
-    TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
+struct TitleDescriptionView_Previews: PreviewProvider {
+    static var previews: some View {
+        TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description, imageURL: MockData.mockItem.homeland.image ?? "")
+    }
 }

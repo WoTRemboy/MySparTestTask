@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct CartView: View {
-    var body: some View {
+    internal var body: some View {
         Text(Texts.Tabs.cart)
+            .tabItem {
+                Image.Icons.cart
+                    .renderingMode(.template)
+                Text(Texts.Tabs.cart)
+            }
     }
 }
 
-#Preview {
-    CartView()
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        CartView()
+    }
 }

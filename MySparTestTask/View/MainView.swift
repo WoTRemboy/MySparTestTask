@@ -9,17 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var isLiked = false
-        
-    // MARK: Views with mock data
-    let imagePreview = ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale)
-    let titleDescriprion = TitleDescriptionView(name: MockData.item.name, homeland: MockData.item.homeland, descriptionText: MockData.item.description)
-    let characteristics = CharacteristicsView(chars: MockData.item.characteristics)
-    let reviews = ReviewsView(reviewsData: MockData.item.reviews)
-    let price = PriceView(prices: MockData.item.price)
+    @StateObject private var viewModel = ViewModel()
     
     // MARK: Main view
-    var body: some View {
+    internal var body: some View {
         TabView {
         NavigationView {
                 VStack(spacing: 0) {
@@ -27,11 +20,15 @@ struct MainView: View {
                     ScrollView{
                         Spacer()
                         LazyVStack {
-                            imagePreview
-                            titleDescriprion
-                            characteristics
-                            reviews
-                            price
+                            ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale, imageURL: MockData.mockItem.image)
+                            
+                            TitleDescriptionView(name: MockData.mockItem.name, homeland: MockData.mockItem.homeland, descriptionText: MockData.mockItem.description, imageURL: MockData.mockItem.homeland.image ?? "")
+                            
+                            CharacteristicsView(chars: MockData.mockItem.characteristics)
+                            
+                            ReviewsView(reviewsData: MockData.mockItem.reviews)
+                            
+                            PriceView(prices: MockData.mockItem.price)
                         }
                     }
                     .navigationBarItems(leading: leadingNavButton, trailing: trailingNavButtons)
@@ -40,48 +37,30 @@ struct MainView: View {
         }
         .tabItem {
             Image.Icons.main
-                .environment(\.symbolVariants, .none)
+                .renderingMode(.template)
             Text(Texts.Tabs.main)
         }
             CatalogView()
-                .tabItem {
-                    Image.Icons.catalog
-                        .environment(\.symbolVariants, .none)
-                    Text(Texts.Tabs.catalog)
-                }
-            
             CartView()
-                .tabItem {
-                    Image.Icons.cart
-                        .environment(\.symbolVariants, .none)
-                    Text(Texts.Tabs.cart)
-                }
-            
             ProfileView()
-                .tabItem {
-                    Image.Icons.profile
-                        .environment(\.symbolVariants, .none)
-                    Text(Texts.Tabs.profile)
-                }
         }
     }
     
     // MARK: Navigation buttons
-    var leadingNavButton: some View {
+    private var leadingNavButton: some View {
         Button(action: {}, label: {
             Image.Navigation.arrowBack
-                .fontWeight(.medium)
-                .modifier(NavigationSetup(size: CGSize(width: 20, height: 25)))
+                .resizable()
+                .modifier(NavigationSetup(size: CGSize(width: 20, height: 20)))
         })
     }
     
-    var trailingNavButtons: some View {
+    private var trailingNavButtons: some View {
         HStack {
             Spacer()
             Button(action: {}, label: {
                 Image.Navigation.check
                     .resizable()
-                    .fontWeight(.medium)
                     .modifier(NavigationSetup(size: CGSize(width: 20, height: 25)))
             })
             .padding(.trailing, 6)
@@ -89,19 +68,17 @@ struct MainView: View {
             Button(action: {}, label: {
                 Image.Navigation.share
                     .resizable()
-                    .fontWeight(.medium)
                     .modifier(NavigationSetup(size: CGSize(width: 20, height: 25)))
             })
             .padding(.trailing, 6)
             
             Button(action: {
                 withAnimation {
-                    isLiked.toggle() // animated heart button
+                    viewModel.toggleLike() // animated heart button
                 }
             }, label: {
-                (isLiked ? Image.Navigation.filledHeart : Image.Navigation.heart)
+                (viewModel.isLiked ? Image.Navigation.filledHeart : Image.Navigation.heart)
                     .resizable()
-                    .fontWeight(.medium)
                     .modifier(NavigationSetup(size: CGSize(width: 23, height: 23)))
             })
             .padding(.bottom, -4)
@@ -109,6 +86,8 @@ struct MainView: View {
     }
 }
 
-#Preview {
-    MainView()
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
 }

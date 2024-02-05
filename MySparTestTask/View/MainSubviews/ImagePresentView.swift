@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct ImagePresentView: View {
-    let averageRating: Float
-    let reviewsCount: String
-    let sale: String
+    @StateObject private var viewModel = ViewModel()
     
-    var body: some View {
+    private let averageRating: Float
+    private let reviewsCount: String
+    private let sale: String
+    private let imageURL: String
+    
+    init(averageRating: Float, reviewsCount: String, sale: String, imageURL: String) {
+        self.averageRating = averageRating
+        self.reviewsCount = reviewsCount
+        self.sale = sale
+        self.imageURL = imageURL
+    }
+    
+    internal var body: some View {
         VStack {
             cardPrice
             image
@@ -20,27 +30,28 @@ struct ImagePresentView: View {
         }
     }
     
-    var cardPrice: some View {
+    private var cardPrice: some View {
         HStack {
             Text(Texts.Content.cardPrice)
-                .font(.footnote)
                 .modifier(CardPriceSetup())
-                .padding(.leading)
             Spacer()
         }
     }
     
-    var image: some View {
-        Image.Content.sparLipa
+    private var image: some View {
+        Image(uiImage: viewModel.image ?? UIImage())
             .resizable()
-            .frame(width: 530 / 3.5, height: 880 / 4)
+            .onAppear {
+                viewModel.loadImage(urlString: imageURL)
+            }
+            .frame(width: 220, height: 220)
     }
     
-    var reviews: some View {
+    private var reviews: some View {
         HStack {
             Image.Icons.star
                 .padding(.leading, 20)
-                .foregroundStyle(Color.IconColors.starHighlighted)
+                .foregroundColor(Color.IconColors.starHighlighted)
             
             Text(String(averageRating))
                 .font(.headline())
@@ -48,49 +59,22 @@ struct ImagePresentView: View {
             
             Text("|")
                 .font(.separator())
-                .foregroundStyle(Color.labelTertiary)
-                .padding(.leading, -5)
+                .modifier(TertiaryReviewTextSetup())
                 .padding(.bottom, 5)
             
             Text("\(reviewsCount)")
                 .font(.headline())
-                .foregroundStyle(Color.labelTertiary)
-                .padding(.leading, -5)
+                .modifier(TertiaryReviewTextSetup())
             
             Spacer()
             Text(sale)
-                .font(.footnote())
-                .foregroundStyle(Color.LabelColors.labelWhite)
-                .padding(.top, 8)
-            
-                .background(CurvedRectangle()
-                    .foregroundColor(.IconColors.saleBackground)
-                    .frame(width: 50, height: 28))
-                .padding(.trailing, 25)
+                .modifier(SaveViewSetup())
         }
     }
 }
 
-// MARK: Sale rectangle setup
-struct CurvedRectangle: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        
-        let width = rect.size.width
-        let height = rect.size.height
-        
-        path.move(to: CGPoint(x: 0, y: height / 3))
-        path.addLine(to: CGPoint(x: 0, y: height))
-        path.addQuadCurve(to: CGPoint(x: width, y: height), control: CGPoint(x: width / 2, y: height * 1.2))
-        
-        path.addLine(to: CGPoint(x: width * 6/7, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 0, y: height / 3), control: CGPoint(x: width / 2, y: height / 2.5))
-        
-        return path
+struct ImagePresentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ImagePresentView(averageRating: 4.1, reviewsCount: Texts.MockData.reviewCount, sale: Texts.MockData.sale, imageURL: MockData.mockItem.image)
     }
-}
-
-
-#Preview {
-    ImagePresentView(averageRating: 4.1, reviewsCount: "19 отзывов", sale: "-5%")
 }

@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct ReviewsView: View {
-    var reviewsData: [Review]
+    private var reviewsData: [Review]
+    
+    init(reviewsData: [Review]) {
+        self.reviewsData = reviewsData
+    }
         
-    var body: some View {
+    internal var body: some View {
         top
         reviews
         newReview
     }
     
-    var top: some View {
+    private var top: some View {
         HStack {
             Text(Texts.Content.reviews)
                 .font(.title())
@@ -24,15 +28,15 @@ struct ReviewsView: View {
             Spacer()
             Button(action: {}, label: {
                 Text("\(Texts.Content.allReviews) \(reviewsData.count)")
-                    .foregroundStyle(Color.IconColors.iconsForeground)
+                    .foregroundColor(Color.IconColors.iconsForeground)
                     .font(.boldHeadline())
             })
             .padding(.trailing)
         }
     }
     
-    var reviews: some View {
-        ScrollView(.horizontal) {
+    private var reviews: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 ForEach(reviewsData, id: \.id) { review in
                     ReviewCell(review: review) // custom review cell
@@ -43,26 +47,16 @@ struct ReviewsView: View {
         }
     }
     
-    var newReview: some View {
+    private var newReview: some View {
         Button(action: {}, label: {
             Text(Texts.Content.publishReview)
-                .font(.boldHeadline())
-                .foregroundStyle(Color.IconColors.iconsForeground)
-            
-                .frame(
-                    width: UIScreen.main.bounds.width - 32,
-                    height: 35)
-            
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-            
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.IconColors.iconsForeground, lineWidth: 2)
-                )
+                .modifier(NewReviewButtonSetup())
         })
     }
 }
 
-#Preview {
-    ReviewsView(reviewsData: MockData.item.reviews)
+struct ReviewsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReviewsView(reviewsData: MockData.mockItem.reviews)
+    }
 }

@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct CatalogView: View {
-    var body: some View {
+    internal var body: some View {
         Text(Texts.Tabs.catalog)
+            .tabItem {
+                Image.Icons.catalog
+                    .renderingMode(.template)
+                Text(Texts.Tabs.catalog)
+            }
     }
 }
 
-#Preview {
-    CatalogView()
+struct CatalogView_Previews: PreviewProvider {
+    static var previews: some View {
+        CatalogView()
+    }
 }
